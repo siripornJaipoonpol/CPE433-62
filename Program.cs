@@ -291,16 +291,16 @@ namespace DNWS
             {
                 try
                 {
-                    // Wait for client
+                    
                     clientSocket = serverSocket.Accept();
-                    // Get one, show some info
+              
                     _parent.Log("Client accepted:" + clientSocket.RemoteEndPoint.ToString());
                     HTTPProcessor hp = new HTTPProcessor(clientSocket, _parent);
                     
                     Thread t = new Thread(() => foo(hp));
                     t.Start();
 
-                    // hp.Process();
+                    
                 }
                 catch (Exception ex)
                 {
