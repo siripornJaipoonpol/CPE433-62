@@ -297,10 +297,10 @@ namespace DNWS
                     _parent.Log("Client accepted:" + clientSocket.RemoteEndPoint.ToString());
                     HTTPProcessor hp = new HTTPProcessor(clientSocket, _parent);
                     
-                    // Thread t = new Thread(() => foo(hp));
-                    // t.Start();
+                    Thread t = new Thread(() => foo(hp));
+                    t.Start();
 
-                    hp.Process();
+                    // hp.Process();
                 }
                 catch (Exception ex)
                 {
@@ -308,9 +308,9 @@ namespace DNWS
                 }
             }
         }
-        // private void foo(HTTPProcessor hp)
-        // {
-        //     hp.Process();
-        // }
+        private void foo(HTTPProcessor hp)
+        {
+            hp.Process();
+        }
     }
 }
